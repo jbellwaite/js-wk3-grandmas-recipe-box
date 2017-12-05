@@ -1,0 +1,84 @@
+// @import "utils/utils";
+// @import "components/components";
+// @import "base/base";
+@import url('https://fonts.googleapis.com/css?family=Crafty+Girls|Pacifico');
+
+$border: #e80d99;
+$title: #55a34b;
+$inside: #feffc6;
+$header: 'Pacifico', cursive;
+$body: 'Crafty Girls', cursive;
+
+.card {
+  background-color: $inside;
+  border: 10px dashed $border;
+  display: flex;
+  padding: 0 10px;
+  margin: 50px;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  img {
+    width: 300px;
+    height: auto;
+  }
+}
+.left {
+  width: 45%;
+}
+.right {
+  margin-top: 40px;
+  width: 55%;
+}
+
+h1{
+  background-color: white;
+  // outline-style: groove;
+  // outline-width: 10px;
+  // outline-color: white;
+  border: 10px dashed black;
+  width: 600px;
+
+}
+
+h1, h2, h4 {
+  font-family: $header;
+}
+
+h2, h4 {
+  color: $title;
+}
+
+body {
+  font-size: 30px;
+  font-family: $body;
+  background-image: url('/resources/img/bg.jpg');
+  display: flex;
+  justify-content: center;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h4, p, ul, ol {
+  margin-top: 0;
+}
+
+#theo {
+  background-image: url('/resources/img/theo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 10px dashed white;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  align-self: center;
+  padding: 5px;
+}
