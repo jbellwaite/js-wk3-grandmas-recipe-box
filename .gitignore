@@ -1,4 +1,4 @@
-nonode_modules/
+node_modules/
 npm-debug.log
 bower_components/
 app/*.js
