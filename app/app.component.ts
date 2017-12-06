@@ -4,22 +4,27 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <h1>Grandma's Recipe Box</h1>
-  <div id="theo">
+  <div id="theo" (click)="theoSpeaks()">
   </div>
-  <div *ngFor="let currentRecipe of recipes" class="card">
-    <div class="left">
-      <h2>{{currentRecipe.title}}</h2>
-      <img src= {{currentRecipe.image}}>
-      <h4>{{currentRecipe.time}}</h4>
+  <ul>
+    <li (click)="viewRecipe(currentRecipe)" *ngFor="let currentRecipe of recipes">{{currentRecipe.title}}</li>
+  </ul>
+  <div *ngIf="selectedRecipe" class="card">
+    <div class="right">
+      <h2>{{selectedRecipe.title}}</h2>
+      <img src={{selectedRecipe.image}}>
+      <h4>{{selectedRecipe.time}}</h4>
+    </div>
+    <div class="right">
       <p>Ingredients</p>
       <ul>
-        <li *ngFor="let ingredient of currentRecipe.ingredients">{{ingredient}}</li>
+        <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ingredient}}</li>
       </ul>
     </div>
     <div class="right">
       <p id="directions">Directions</p>
       <ol>
-        <li *ngFor="let direction of currentRecipe.directions">{{direction}}</li>
+        <li *ngFor="let direction of selectedRecipe.directions">{{direction}}</li>
       </ol>
     </div>
   </div>
@@ -32,6 +37,16 @@ export class AppComponent {
     new Recipe("Chicken Adobo", "resources/img/adobo.jpg", "40 minutes", ["2 lbs of chicken", "soy sauce", "vinegar", "bay leaves", "garlic", "peppercorn", "potatoes", "carrots", "olive oil or some oil"], ["Sauté the garlic in oil til golden brown.", "Add chicken.", "Add soy sauce and vinegar, and let simmer until chicken pretty cooked.", "Oh yeah, there are potatoes and carrots, you should add those.", "I don't know when the peppercorn or bay leaves, but those should go in at some point.", "When it smells awesome, eat it. Over rice is great!"]),
     new Recipe("Banana Bread", "resources/img/banana.jpg", "1 hour 25 minutes", ["bananas", "flour", "sugar", "an egg", "butter", "water"], ["Mash bananas.", "Add butter, water, and egg to bananas and mix well.", "In a separate bowl, mix dry ingredients.", "Slowly fold dry ingredients into wet ingredients.", "Pour into baking dish.", "Bake for 1 hour at 325 degrees.", "Eat when cooled."])
   ];
+
+  viewRecipe(clickedRecipe){
+    this.selectedRecipe = clickedRecipe;
+  }
+  selectedRecipe = null;
+
+  theoSpeaks(){
+    alert("MEOW");
+  }
+
 
   // testRecipe: string = 'Curry Chicken';
   // ingredients = {

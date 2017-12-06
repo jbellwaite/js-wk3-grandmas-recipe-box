@@ -1,15 +1,17 @@
 // @import "utils/utils";
 // @import "components/components";
 // @import "base/base";
-@import url('https://fonts.googleapis.com/css?family=Crafty+Girls|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 
 $border: #e80d99;
-$title: #55a34b;
+$title: #f86e32;
 $inside: #feffc6;
-$header: 'Pacifico', cursive;
-$body: 'Crafty Girls', cursive;
+$header: 'Homemade Apple', cursive;
+$body: 'Special Elite', cursive;
 
 .card {
+  width: 80vw;
   background-color: $inside;
   border: 10px dashed $border;
   display: flex;
@@ -19,10 +21,10 @@ $body: 'Crafty Girls', cursive;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
   }
   img {
-    width: 300px;
+    width: 80%;
     height: auto;
   }
 }
@@ -30,17 +32,17 @@ $body: 'Crafty Girls', cursive;
   width: 45%;
 }
 .right {
-  margin-top: 40px;
   width: 55%;
 }
 
 h1{
+  text-align: center;
   background-color: white;
   // outline-style: groove;
   // outline-width: 10px;
   // outline-color: white;
   border: 10px dashed black;
-  width: 600px;
+  width: auto;
 
 }
 
@@ -58,6 +60,7 @@ body {
   background-image: url('/resources/img/bg.jpg');
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 app-root {
@@ -66,8 +69,12 @@ app-root {
   justify-content: center;
 }
 
-h4, p, ul, ol {
+h4, ul, ol {
   margin-top: 0;
+}
+
+h2, p {
+  margin-top: 10%;
 }
 
 #theo {
@@ -81,4 +88,53 @@ h4, p, ul, ol {
   height: 200px;
   align-self: center;
   padding: 5px;
+}
+
+ul:nth-child(3){
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+ul:nth-child(3) li{
+  background-color: white;
+  display: inline;
+  border-bottom: 10px dashed white;
+  padding: 10px 10px;
+}
+
+ul:nth-child(3) li:hover{
+  background-color: $border;
+  border-bottom: 10px dashed yellow;
+  cursor: pointer;
+}
+
+p {
+  text-decoration: underline;
+}
+
+@media screen and (max-width:1350px){
+  .card h2 {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (max-width:700px){
+  h4 {
+    margin: 0;
+  }
+  .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .card {
+    h2{
+      font-size: 30px;
+    }
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
