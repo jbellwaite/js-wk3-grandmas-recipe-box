@@ -4,6 +4,12 @@
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 
+@mixin nav {
+  background-color: $border;
+  border-bottom: 10px dashed yellow;
+  cursor: pointer;
+}
+
 $border: #e80d99;
 $title: #f86e32;
 $inside: #feffc6;
@@ -104,11 +110,25 @@ ul:nth-child(3) li{
 }
 
 ul:nth-child(3) li:hover{
-  background-color: $border;
-  border-bottom: 10px dashed yellow;
-  cursor: pointer;
+  @include nav;
 }
 
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button {
+  border: 0px;
+  background-color: white;
+  padding: 10px;
+  width: 200px;
+  font-size: 30px;
+  font-family: $body;
+}
+button:hover {
+  @include nav;
+}
 p {
   text-decoration: underline;
 }

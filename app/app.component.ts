@@ -9,24 +9,27 @@ import { Component } from '@angular/core';
   <ul>
     <li (click)="viewRecipe(currentRecipe)" *ngFor="let currentRecipe of recipes">{{currentRecipe.title}}</li>
   </ul>
-  <div *ngIf="selectedRecipe" class="card">
-    <div class="right">
-      <h2>{{selectedRecipe.title}}</h2>
-      <img src={{selectedRecipe.image}}>
-      <h4>{{selectedRecipe.time}}</h4>
+  <div class="card-wrapper" *ngIf="selectedRecipe">
+    <div class="card">
+      <div class="right">
+        <h2>{{selectedRecipe.title}}</h2>
+        <img src={{selectedRecipe.image}}>
+        <h4>{{selectedRecipe.time}}</h4>
+      </div>
+      <div class="right">
+        <p>Ingredients</p>
+        <ul>
+          <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ingredient}}</li>
+        </ul>
+      </div>
+      <div class="right">
+        <p id="directions">Directions</p>
+        <ol>
+          <li *ngFor="let direction of selectedRecipe.directions">{{direction}}</li>
+        </ol>
+      </div>
     </div>
-    <div class="right">
-      <p>Ingredients</p>
-      <ul>
-        <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ingredient}}</li>
-      </ul>
-    </div>
-    <div class="right">
-      <p id="directions">Directions</p>
-      <ol>
-        <li *ngFor="let direction of selectedRecipe.directions">{{direction}}</li>
-      </ol>
-    </div>
+    <button (click)="hideRecipe()" type="button">Done</button>
   </div>
   `
 })
@@ -40,6 +43,10 @@ export class AppComponent {
 
   viewRecipe(clickedRecipe){
     this.selectedRecipe = clickedRecipe;
+  }
+
+  hideRecipe(){
+    this.selectedRecipe = null;
   }
   selectedRecipe = null;
 
